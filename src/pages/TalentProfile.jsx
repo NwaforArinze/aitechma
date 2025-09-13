@@ -16,7 +16,7 @@ const TalentProfile = () => {
   return (
     <div className="space-y-6">
       <ProfileHeader role={t.role} name={t.name} avatar={t.avatar} />
-      <div className="flex w-full gap-6">
+      <div className="flex flex-col md:flex-row w-full gap-6">
         <WorkNature
           className="flex-[1.9]"
           jobType={t.jobType}
@@ -38,7 +38,7 @@ const TalentProfile = () => {
           stacks={t.stacks}
         />
       </div>
-      <div className="flex w-full gap-6">
+      <div className="flex flex-col md:flex-row w-full gap-6">
         <WorkExperience className="flex-[2]" experiences={t.workExperience} />
         <LinksCard className="flex-[1]" cardLinks={t.links} />
       </div>

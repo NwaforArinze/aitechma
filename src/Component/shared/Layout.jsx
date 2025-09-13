@@ -11,7 +11,7 @@ const layout = () => {
         <div className="flex-shrink-0">
           <Header />
         </div>
-        <div className="flex-1 overflow-y-auto p-6 border-[2px] border-[#2A2B31] rounded-t-sm bg-[#0F1014]">
+        <div className="flex-1 overflow-y-auto px-2 py-6 md:p-6 border-[2px] border-[#2A2B31] rounded-t-sm bg-[#0F1014]">
           {<Outlet />}
         </div>
       </div>

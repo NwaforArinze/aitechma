@@ -191,19 +191,21 @@ export default function TalentTable() {
     <div>
       {/* Scrollable Table Wrapper */}
       <div className="relative py-6 flex flex-col md:flex-row justify-between gap-3">
-        <Search
-          size={16}
-          className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-        />
-        <Input
-          placeholder="Search by title"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            setPage(1);
-          }}
-          className="md:w-6/7 bg-zinc-700 text-gray-300 pl-14 border border-[#2A2B31]"
-        />
+        <div className="relative w-full">
+          <Search
+            size={16}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+          />
+          <Input
+            placeholder="Search by title"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setPage(1);
+            }}
+            className="w-[96%]  bg-zinc-800 text-gray-300 pl-14 border-[2px] border-[#2A2B31]"
+          />
+        </div>
 
         <Select
           value={statusFilter}
@@ -222,7 +224,7 @@ export default function TalentTable() {
               }
             />
           </SelectTrigger>
-          <SelectContent className="bg-gray-800 border-none text-gray-300">
+          <SelectContent className="bg-gray-900 border-none text-gray-300">
             <SelectItem className="hover:bg-gray-950" value="All">
               All
             </SelectItem>

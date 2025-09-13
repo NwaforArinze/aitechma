@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const Interviews = () => {
   return (
-    <div className="text-white w-full px-4">
+    <div className="text-white w-[400px] md:w-full md:px-4">
       <h2 className="text-2xl font-semibold mb-4">Interviews</h2>
 
       {/* Tabs */}

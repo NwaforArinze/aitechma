@@ -38,13 +38,13 @@ const Home = () => {
     },
   ];
   return (
-    <div className="text-white z-10 mx-4 space-y-4">
+    <div className="text-white z-10 md:mx-4 space-y-4">
       <Topbar />
       <Notifications
         message="We are currently reviewing your profile. You will be notified once you
         are verified"
       />
-      <div className="w-[94%] grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div className="w-full md:w-[94%] grid grid-cols-1 lg:grid-cols-4 gap-4">
         <SummaryCard
           value="4"
           title="Talent Requests"

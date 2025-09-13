@@ -5,7 +5,7 @@ const ProfileHeader = ({ avatar, name, role }) => {
         <span className="text-sm text-yellow-400">Home </span>
         <span className="text-gray-500">/ {name}</span>
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
         <div className="flex items-center gap-4">
           <div>
             <img src={avatar} alt={name} className="w-12 h-12 rounded-full" />
@@ -15,7 +15,7 @@ const ProfileHeader = ({ avatar, name, role }) => {
             <p className="text-sm">{role}</p>
           </div>
         </div>
-        <button className="bg-yellow-400 text-black font-bold px-4 py-2 rounded-lg hover:bg-yellow-500 transition cursor-pointer">
+        <button className="bg-yellow-400 text-black font-bold px-4 py-2 rounded-lg hover:bg-yellow-500 transition cursor-pointer md:mt-0 mt-4">
           Shortlist for interview
         </button>
       </div>

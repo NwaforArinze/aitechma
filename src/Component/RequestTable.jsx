@@ -168,22 +168,24 @@ export default function TalentTable() {
   );
 
   return (
-    <div>
+    <div className="w-full">
       {/* Scrollable Table Wrapper */}
       <div className="relative py-6 flex flex-col md:flex-row justify-between gap-3">
-        <Search
-          size={16}
-          className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-        />
-        <Input
-          placeholder="Search by title"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            setPage(1);
-          }}
-          className="md:w-6/7 bg-zinc-800 text-gray-300 pl-14 border border-[#2A2B31]"
-        />
+        <div className="relative w-full">
+          <Search
+            size={16}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+          />
+          <Input
+            placeholder="Search by title"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setPage(1);
+            }}
+            className="w-[96%]  bg-zinc-800 text-gray-300 pl-14 border-[2px] border-[#2A2B31]"
+          />
+        </div>
 
         <Select
           value={statusFilter}
@@ -219,77 +221,89 @@ export default function TalentTable() {
         </Select>
       </div>
 
-      <div className="relative max-h-[600px] overflow-y-auto rounded-lg border border-[#2A2B31]">
-        {/* Table */}
-        <Table>
-          <TableHeader className="bg-[#1C1D22] z-10 p-2">
-            <TableRow className="border-b-[#2A2B31]">
-              <TableHead className="text-gray-300">S/N</TableHead>
-              <TableHead className="text-gray-300">Title</TableHead>
-              <TableHead className="text-gray-300">Specialization</TableHead>
-              <TableHead className="text-gray-300">Location</TableHead>
-              <TableHead className="text-gray-300">Seniority</TableHead>
-              <TableHead className="text-gray-300">Min. Year</TableHead>
-              <TableHead className="text-gray-300">Type</TableHead>
-              <TableHead className="text-gray-300">Mode</TableHead>
-              <TableHead className="text-gray-300">Scheduled</TableHead>
-              <TableHead className="text-gray-300">Min. Pay</TableHead>
-              <TableHead className="text-gray-300">Max. Pay</TableHead>
-              <TableHead className="text-end mr-3 text-gray-300">
-                Actions
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {paginatedData.length > 0 ? (
-              paginatedData.map((row, rowIndex) => (
-                <TableRow
-                  key={row.id}
-                  className={`align-middle border-none transition ${
-                    rowIndex % 2 === 0 ? "bg-[#1C1D22]" : "bg-zinc-800"
-                  } hover:bg-gray-700`}
-                >
-                  <TableCell className="text-gray-300 py-8">{row.id}</TableCell>
-                  <TableCell className="text-gray-300 py-8">
-                    {row.title}
-                  </TableCell>
-                  <TableCell className="text-gray-300 py-8">
-                    {row.role}
-                  </TableCell>
-                  <TableCell className="text-gray-300">
-                    {row.location}
-                  </TableCell>
-                  <TableCell className="text-gray-300">
-                    {row.seniority}
-                  </TableCell>
-                  <TableCell className="text-gray-300">{row.minYear}</TableCell>
-                  <TableCell className="text-gray-300">{row.type}</TableCell>
-                  <TableCell className="text-gray-300">{row.mode}</TableCell>
-                  <TableCell className="text-gray-300">
-                    {row.schedule}
-                  </TableCell>
-                  <TableCell className="text-gray-300">${row.minPay}</TableCell>
-                  <TableCell className="text-gray-300">{row.maxPay}</TableCell>
-
-                  <TableCell className="text-right text-gray-300">
-                    <div className="inline-flex items-center justify-end gap-2">
-                      <SquarePen />
-                      <div className="bg-black border-yellow-600 border hover:bg-yellow-700 text-yellow-600 rounded px-2 py-1">
-                        {row.action}
+      <div className="relative max-h-[600px] overflow-y-auto border border-[#2A2B31] rounded-lg">
+        {/* Horizontal Scroll Wrapper */}
+        <div className="w-full overflow-x-auto">
+          <Table className="min-w-[1000px] w-full">
+            <TableHeader className="bg-[#1C1D22] z-10 p-2">
+              <TableRow className="border-b-[#2A2B31]">
+                <TableHead className="text-gray-300">S/N</TableHead>
+                <TableHead className="text-gray-300">Title</TableHead>
+                <TableHead className="text-gray-300">Specialization</TableHead>
+                <TableHead className="text-gray-300">Location</TableHead>
+                <TableHead className="text-gray-300">Seniority</TableHead>
+                <TableHead className="text-gray-300">Min. Year</TableHead>
+                <TableHead className="text-gray-300">Type</TableHead>
+                <TableHead className="text-gray-300">Mode</TableHead>
+                <TableHead className="text-gray-300">Scheduled</TableHead>
+                <TableHead className="text-gray-300">Min. Pay</TableHead>
+                <TableHead className="text-gray-300">Max. Pay</TableHead>
+                <TableHead className="text-end mr-3 text-gray-300">
+                  Actions
+                </TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {paginatedData.length > 0 ? (
+                paginatedData.map((row, rowIndex) => (
+                  <TableRow
+                    key={row.id}
+                    className={`align-middle border-none transition ${
+                      rowIndex % 2 === 0 ? "bg-[#1C1D22]" : "bg-zinc-800"
+                    } hover:bg-gray-700`}
+                  >
+                    <TableCell className="text-gray-300 py-8">
+                      {row.id}
+                    </TableCell>
+                    <TableCell className="text-gray-300 py-8">
+                      {row.title}
+                    </TableCell>
+                    <TableCell className="text-gray-300 py-8">
+                      {row.role}
+                    </TableCell>
+                    <TableCell className="text-gray-300">
+                      {row.location}
+                    </TableCell>
+                    <TableCell className="text-gray-300">
+                      {row.seniority}
+                    </TableCell>
+                    <TableCell className="text-gray-300">
+                      {row.minYear}
+                    </TableCell>
+                    <TableCell className="text-gray-300">{row.type}</TableCell>
+                    <TableCell className="text-gray-300">{row.mode}</TableCell>
+                    <TableCell className="text-gray-300">
+                      {row.schedule}
+                    </TableCell>
+                    <TableCell className="text-gray-300">
+                      ${row.minPay}
+                    </TableCell>
+                    <TableCell className="text-gray-300">
+                      {row.maxPay}
+                    </TableCell>
+                    <TableCell className="text-right text-gray-300">
+                      <div className="inline-flex items-center justify-end gap-2">
+                        <SquarePen />
+                        <div className="bg-black border-yellow-600 border hover:bg-yellow-700 text-yellow-600 rounded px-2 py-1">
+                          {row.action}
+                        </div>
                       </div>
-                    </div>
+                    </TableCell>
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={12}
+                    className="text-center text-gray-400 py-4"
+                  >
+                    No results found
                   </TableCell>
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell colSpan={3} className="text-center text-gray-400">
-                  No results found
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+              )}
+            </TableBody>
+          </Table>
+        </div>
       </div>
 
       {/* Pagination  */}
