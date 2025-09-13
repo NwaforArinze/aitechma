@@ -241,7 +241,7 @@ export default function TalentTable() {
         </Select>
       </div>
 
-      <div className="relative max-h-[600px] overflow-y-auto rounded-lg border border-[#2A2B31]">
+      <div className="relative mx-auto max-h-[600px] w-[370px] md:w-full overflow-x-auto rounded-lg border border-[#2A2B31]">
         {/* Table */}
         <Table>
           <TableHeader className="bg-[#1C1D22] z-10 p-2">

@@ -221,7 +221,7 @@ export default function TalentTable() {
         </Select>
       </div>
 
-      <div className="relative max-h-[600px] overflow-y-auto border border-[#2A2B31] rounded-lg">
+      <div className="relative max-h-[600px] mx-auto w-[370px] md:w-full overflow-y-auto border border-[#2A2B31] rounded-lg">
         {/* Horizontal Scroll Wrapper */}
         <div className="w-full overflow-x-auto">
           <Table className="min-w-[1000px] w-full">
