@@ -5,7 +5,7 @@ import {
   Navigate,
   Link,
 } from "react-router-dom";
-import Layout from "./Component/shared/layout";
+import Layout from "./Component/shared/Layout";
 import Home from "./pages/Home";
 import TalentProfile from "./pages/TalentProfile";
 import Requests from "./pages/Requests";
