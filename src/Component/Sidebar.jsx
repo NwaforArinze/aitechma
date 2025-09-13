@@ -7,12 +7,12 @@ import {
   ReceiptText,
   Settings,
   BadgeQuestionMark,
+  X,
 } from "lucide-react";
 
-const Sidebar = () => {
+const Sidebar = ({ closeSidebar }) => {
   const location = useLocation();
 
-  // Home is active on `/` or anything under `/talents/...`
   const isHomeActive =
     location.pathname === "/" || location.pathname.startsWith("/talents/");
 
@@ -49,13 +49,24 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="flex flex-col bg-[#1C1D22] text-gray-100 w-16 p-4">
+    <div className="flex flex-col bg-[#1C1D22] text-gray-100 w-full h-full p-4 relative">
+      {/* Close Button (mobile only) */}
+      {closeSidebar && (
+        <button
+          className="absolute top-4 right-4 md:hidden text-white"
+          onClick={closeSidebar}
+        >
+          <X size={24} />
+        </button>
+      )}
+
       <div className="flex-1">
         <div className="mt-12 space-y-1">
-          {/* Home Item — with custom active logic */}
+          {/* Home */}
           <Link
             to="/"
             className="flex flex-col justify-center items-center p-2"
+            onClick={closeSidebar}
           >
             <span
               className={`rounded-lg p-2 transition hover:text-yellow-500 ${
@@ -81,6 +92,7 @@ const Sidebar = () => {
               key={item.key}
               to={item.to}
               className="flex flex-col justify-center items-center p-2"
+              onClick={closeSidebar}
             >
               {({ isActive }) => (
                 <>
@@ -107,13 +119,14 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {/* Bottom Items (Settings / Help) */}
+      {/* Bottom */}
       <div className="mt-4">
         {bottomItems.map((item) => (
           <NavLink
             key={item.key}
             to={item.to}
             className="flex justify-center items-center p-2 mb-2 hover:bg-gray-700 rounded"
+            onClick={closeSidebar}
           >
             {({ isActive }) => (
               <span className={isActive ? "text-yellow-500" : "text-gray-400"}>
