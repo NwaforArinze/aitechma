@@ -23,11 +23,14 @@ const Header = ({ toggleSidebar }) => {
           <MenuIcon size={24} />
         </button>
 
-        <div className="relative flex flex-col justify-between items-center mt-2">
+        {/* <div className="relative flex flex-col justify-between items-center mt-2">
           <span className="text-yellow-500 absolute -top-1">
             <Zap size={14} />
           </span>
           <h1 className="font-[600] text-3xl px-3 text-white">aitechma</h1>
+        </div> */}
+        <div>
+          <img src="/logo.jpg" alt="" className="w-50 h-auto" />
         </div>
       </div>
 
